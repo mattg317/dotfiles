@@ -1,0 +1,26 @@
+alias desk="cd ~/Desktop/"
+alias actv=". env/bin/activate"
+
+# git alias
+alias gl="git log --oneline --graph --decorate"
+alias gla="git log --oneline --graph --decorate --all"
+alias gs="git status"
+
+# Kubernetes
+alias k='kubectl'
+# Change name space by add --namespace=
+alias kcsc='kubectl config set-context --current'
+alias kgns='kubectl get namespaces'
+alias kcgc='kubectl config get-contexts'
+alias kdata='kubectl config use-context data'
+alias kdev='kubectl config use-context data-dev'
+
+# Argo
+alias al='argo list'
+alias als='argo list --since '
+
+# argocd
+alias argocd='argocd --port-forward --port-forward-namespace=argocd'
+
+# exa
+alias ds='exa --group-directories-first'
