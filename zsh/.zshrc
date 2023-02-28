@@ -70,7 +70,13 @@ ZSH_THEME="mattrobbyrussel"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git fzf tmux aliases)
+plugins=(
+    git 
+    fzf 
+    tmux 
+    aliases
+    kubectl
+    )
 
 source $ZSH/oh-my-zsh.sh
 
@@ -105,18 +111,29 @@ source $ZSH/oh-my-zsh.sh
 # All stuff below will be added to zshenv if there are problems can revert back here
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/$USERNAME/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+#__conda_setup="$('/Users/$USERNAME/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+#if [ $? -eq 0 ]; then
+#    eval "$__conda_setup"
+#else
+#    if [ -f "/Users/$USERNAME/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+#        . "/Users/$USERNAME/opt/anaconda3/etc/profile.d/conda.sh"
+#    else
+#        export PATH="/Users/$USERNAME/opt/anaconda3/bin:$PATH"
+#    fi
+#fi
+#unset __conda_setup
+# <<< conda initialize <<<
+__conda_setup="$('/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/Users/$USERNAME/opt/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/$USERNAME/opt/anaconda3/etc/profile.d/conda.sh"
+    if [ -f "opt/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "opt/anaconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/Users/$USERNAME/opt/anaconda3/bin:$PATH"
+        export PATH="/opt/anaconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
-# <<< conda initialize <<<
 
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
@@ -137,3 +154,5 @@ source ~/.zsh-aliases
 export FZF_CTRL_T_OPTS="
     --preview 'bat -n --color=always {}'
     --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
